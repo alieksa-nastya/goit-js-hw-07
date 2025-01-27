@@ -18,12 +18,13 @@ function createBoxes(amount) {
   let size = 30; // 30 на 30
 
   for (let i = 0; i < amount; i++) {
-    const box = document.createElement('div'); 
-    box.style.width = `${size}px`;
-    box.style.height = `${size}px`;
-    box.style.backgroundColor = getRandomHexColor();
-    box.style.margin = '5px';
-    boxesContainer.appendChild(box); //додали у контейнер
+    const boxHTML = `<div style = 
+    "width: ${size}px; 
+    height: ${size}px; 
+    background-color: ${getRandomHexColor()};
+    margin: '5px';">
+    </div>`
+  boxesContainer.insertAdjacentHTML('beforeend', boxHTML);
     size += 10;
   }
 }
@@ -46,8 +47,4 @@ function onCreateBtnClick(e) {
 createBtn.addEventListener('click', onCreateBtnClick);
 
 destroyBtn.addEventListener('click', destroyBoxes);
-
-
-
-
 
